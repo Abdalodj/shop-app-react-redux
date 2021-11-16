@@ -25,7 +25,7 @@ function PhoneComponent(props) {
 
 const mapStateToProps = (state) => {
   return {
-    phones: state.phones
+    phones: state.reducePhones.phones
   };
 };
 
