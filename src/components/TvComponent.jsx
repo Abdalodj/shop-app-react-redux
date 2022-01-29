@@ -8,9 +8,15 @@ function TvComponent(props) {
   return (
     <div className='col-4 border border-dark rounded-0 text-center py-4 px-0 mx-3'>
       <img src={tv} alt='Phone' width={150} height={110} className='my-5' />
-      <p className='font-weight-bold h5'>
-        Disponibilité : <span id='count'>{props.tv}</span>
-      </p>
+
+      {props.msg ? (
+        <p className='font-weight-bold h5'>{props.msg}</p>
+      ) : (
+        <p className='font-weight-bold h5'>
+          Disponibilité : <span id='count'>{props.tv}</span>
+        </p>
+      )}
+
       <div
         className='mt-2 mx-auto py-2 px-2'
         style={{ backgroundColor: '#61216a', width: '90%' }}
@@ -34,9 +40,10 @@ function TvComponent(props) {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    tv: state.reduceTv.tv
+    tv: state.reduceTv.tv,
+    ...(state.reduceTv.tv < 1 && { msg: ownProps.warning })
   };
 };
 
