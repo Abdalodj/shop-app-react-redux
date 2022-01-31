@@ -13,7 +13,7 @@ function App() {
           <TvComponent warning='Stock épuisé' />
         </div>
         <div
-          className='row justify-content-center my-5 d-inline-block'
+          className='row justify-content-center my-5'
           style={{ maxHeight: '400px', height: '380px' }}
         >
           <CommentComponent />
